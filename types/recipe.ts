@@ -1,4 +1,6 @@
-interface Recipe {
+type Localised<T> = { [locale: string]: T };
+
+export interface Recipe {
     // e.g. { "en" : "Pasta", "zh-CN": 面 }
     titles: Localised<string>;
     // A list of urls
@@ -9,7 +11,7 @@ interface Recipe {
     instructions: Instruction[];
 }
 
-interface Ingredient {
+export interface Ingredient {
     names: Localised<string>;
     // e.g. { "gram" : 500, "Sainsbury packs": 1 }
     amount: Localised<number>;
@@ -17,33 +19,31 @@ interface Ingredient {
     notes?: Localised<string>;
 }
 
-interface Instruction {
+export interface Instruction {
     id: number;
     time?: number;
     text: Localised<InstructionPart[]>;
 }
 
-interface AnnotatedString {
+export interface AnnotatedString {
     text: string;
     url?: string;
     tooltip?: string;
 }
 
-type TemperatureUnit = "Degrees" | "Fahrenheit" | "Kelvin";
+export type TemperatureUnit = "Degrees" | "Fahrenheit" | "Kelvin";
 
-interface Temperature {
+export interface Temperature {
     unit: TemperatureUnit;
     amount: string;
     convert(to: TemperatureUnit): Temperature;
 }
 
-type TimeUnit = "Second" | "Minute" | "Hour";
+export type TimeUnit = "Second" | "Minute" | "Hour";
 
-interface Time {
+export interface Time {
     unit: TimeUnit;
     amount: string;
 }
 
-type InstructionPart = string | AnnotatedString | Temperature | Time
-
-type Localised<T> = { [locale: string]: T };
+export type InstructionPart = string | AnnotatedString | Temperature | Time

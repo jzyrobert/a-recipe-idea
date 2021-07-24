@@ -3,6 +3,8 @@
 An Typescript/JSON proposal for a standardised, internationalized format to store recipes, in as much or little detail as required.
 
 ```ts
+type Localised<T> = { [locale: string]: T };
+
 interface Recipe {
     // e.g. { "en" : "Pasta", "zh-CN": 面 }
     titles: Localised<string>;
@@ -50,6 +52,4 @@ interface Time {
 }
 
 type InstructionPart = string | AnnotatedString | Temperature | Time
-
-type Localised<T> = { [locale: string]: T };
 ```
