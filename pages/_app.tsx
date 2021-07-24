@@ -1,7 +1,8 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { AppType } from "next/dist/next-server/lib/utils";
+import "../styles/global-styles.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
-export default MyApp
+const MyApp: AppType = ({ Component, pageProps }) => {
+  return <Component {...pageProps} />;
+};
+
+export default MyApp;
